@@ -48,11 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 });
                 alertDialog.show();
             }
-            Intent intent1 = new Intent(MainActivity.this, DisplayInfoActivity.class);
-            startActivity(intent1);
 
             // fetch the Password form database for respective user name
-           /* if (!username.equals("")) {
+            if (!username.equals("")) {
                 storedPassword = loginDataBaseAdapter.getSingleEntry(username);
                 // check if the Stored password matches with  Password entered by user
                 if (password.equals(storedPassword)) {
@@ -69,13 +67,14 @@ public class MainActivity extends AppCompatActivity {
                     });
                     alertDialog.show();
                 }
-            }*/
+            }
         } catch (Exception ex) {
             Log.e("Error", "error login");
         }
     }
 
     public void SignUP(View view) {
+       loginDataBaseAdapter = loginDataBaseAdapter.open();
         Intent intent = new Intent(MainActivity.this, SignUp.class);
         startActivity(intent);
     }
